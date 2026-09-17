@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Broke Club — Get the app</title>
+<meta name="description" content="No-spend challenges with friends. Beat impulse buying and grow your savings. Free on iPhone and Android.">
+<link rel="icon" href="icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Broke Club: No-Spend Streaks">
+<meta property="og:description" content="No-spend challenges with friends. Beat impulse buying and grow your savings.">
+<meta property="og:image" content="icon.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #0D0D11; --card: #17171E; --border: #2A2A35;
+    --text: #F4F4F6; --dim: #9B9BA8; --accent: #C8FF4D; --ink: #0D0D11;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; align-items: center; justify-content: center;
+    padding: 28px 20px; line-height: 1.5;
+  }
+  main { width: 100%; max-width: 420px; text-align: center; }
+
+  .glow { position: relative; display: inline-block; margin-bottom: 10px; }
+  .glow::after {
+    content: ""; position: absolute; inset: -18%; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,255,77,.14), transparent 68%); z-index: -1;
+  }
+  .cat { width: 132px; height: 132px; display: block; }
+
+  h1 { font-size: 30px; line-height: 1.15; margin: 14px 0 6px; letter-spacing: -.5px; }
+  h1 .accent { color: var(--accent); }
+  .tag { color: var(--dim); font-size: 16px; margin: 0 0 22px; }
+
+  .btns { display: grid; gap: 12px; }
+  a.store {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 18px; border-radius: 16px; text-decoration: none;
+    font-weight: 800; font-size: 17px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); transition: transform .12s ease, border-color .12s ease;
+  }
+  a.store:active { transform: scale(.985); }
+  a.store.primary { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+  a.store svg { width: 22px; height: 22px; flex: none; }
+
+  .redirecting { display: none; color: var(--dim); font-size: 14px; margin: 0 0 16px; }
+  .redirecting.on { display: block; }
+  .spin {
+    width: 13px; height: 13px; border-radius: 50%; display: inline-block; vertical-align: -1px;
+    border: 2px solid rgba(200,255,77,.25); border-top-color: var(--accent);
+    animation: spin .7s linear infinite; margin-right: 7px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .feats {
+    list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 10px;
+    text-align: left; color: var(--dim); font-size: 15px;
+  }
+  .feats li { display: flex; gap: 10px; align-items: flex-start; }
+  .feats b { color: var(--text); font-weight: 700; }
+
+  footer { margin-top: 28px; color: #6A6A78; font-size: 12px; }
+  footer a { color: #6A6A78; }
+
+  @media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <span class="glow"><img class="cat" src="cat.png" alt="" width="132" height="132"></span>
+
+  <h1>Saving money,<br><span class="accent">loudly.</span></h1>
+  <p class="tag">No-spend challenges with friends. Beat impulse buying and keep your streak alive.</p>
+
+  <p class="redirecting" id="redirecting"><span class="spin"></span>Opening your store…</p>
+
+  <div class="btns" id="btns">
+    <a class="store" id="ios" href="https://apps.apple.com/app/id6797783738">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.2-.9-2.2-3.2zM14.2 6.2c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-1 2.6 1 .1 2-.5 2.7-1.2z"/></svg>
+      Download on the App Store
+    </a>
+    <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.hasancelik.brokeclub">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2c-.3.3-.5.8-.5 1.4v16.8c0 .6.2 1.1.5 1.4l.1.1 9.4-9.4v-.2L3.6 2.2zM17 15.3l-3.1-3.1v-.2L17 8.9l.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2L17.1 15.2l-.1.1zM16 16.3l-3.2-3.2-9.4 9.4c.4.4 1 .4 1.7.1l10.9-6.3zM16 7.9L5.1 1.6c-.7-.4-1.3-.3-1.7.1l9.4 9.4L16 7.9z"/></svg>
+      Get it on Google Play
+    </a>
+  </div>
+
+  <ul class="feats">
+    <li><span>🚨</span><span><b>Craving SOS.</b> Tap before you tap checkout and the coach does the math.</span></li>
+    <li><span>🎮</span><span><b>Penny's Pocket.</b> Play through the urge instead of buying.</span></li>
+    <li><span>🅿️</span><span><b>Park it.</b> Put a want on a 48-hour timer and decide once the rush is gone.</span></li>
+    <li><span>😼</span><span><b>A cat that grows</b> with everything you did not spend.</span></li>
+  </ul>
+
+  <footer>
+    Free on iPhone and Android ·
+    <a href="https://fhasancelik.github.io/brokeclub-legal/privacy.html">Privacy</a> ·
+    <a href="https://fhasancelik.github.io/brokeclub-legal/terms.html">Terms</a>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var APPLE = 'https://apps.apple.com/app/id6797783738';
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.hasancelik.brokeclub';
+
+  var params = new URLSearchParams(location.search);
+  var ua = navigator.userAgent || '';
+  // iPadOS 13+ reports itself as a Mac, so the touch check is what catches it.
+  var isIOS = /iPhone|iPod/.test(ua) || (/iPad/.test(ua)) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+
+  // Campaign params ride along to the store so attribution survives the hop.
+  function withParams(base, isApple) {
+    var url = new URL(base);
+    if (isApple) {
+      // A custom product page can be targeted with ?ppid=<uuid> on this link.
+      var ppid = params.get('ppid');
+      if (ppid) url.searchParams.set('ppid', ppid);
+      ['pt', 'ct', 'mt'].forEach(function (k) {
+        if (params.get(k)) url.searchParams.set(k, params.get(k));
+      });
+      if (!params.get('ct') && params.get('utm_source')) url.searchParams.set('ct', params.get('utm_source'));
+    } else {
+      var utm = [];
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+        if (params.get(k)) utm.push(k + '=' + encodeURIComponent(params.get(k)));
+      });
+      if (params.get('referrer')) url.searchParams.set('referrer', params.get('referrer'));
+      else if (utm.length) url.searchParams.set('referrer', utm.join('&'));
+    }
+    return url.toString();
+  }
+
+  var appleUrl = withParams(APPLE, true);
+  var playUrl = withParams(PLAY, false);
+  document.getElementById('ios').href = appleUrl;
+  document.getElementById('android').href = playUrl;
+
+  // Put the matching store first and make it the primary button.
+  var btns = document.getElementById('btns');
+  var ios = document.getElementById('ios');
+  var android = document.getElementById('android');
+  if (isAndroid) {
+    btns.insertBefore(android, ios);
+    android.classList.add('primary');
+  } else if (isIOS || !(isIOS || isAndroid)) {
+    ios.classList.add('primary');
+  }
+
+  // On a phone, send them straight through — the page stays behind as the fallback
+  // if the store app never takes over. ?stay=1 keeps the chooser for testing.
+  var target = isIOS ? appleUrl : isAndroid ? playUrl : null;
+  if (target && !params.has('stay')) {
+    document.getElementById('redirecting').classList.add('on');
+    setTimeout(function () { location.replace(target); }, 350);
+  }
+})();
+</script>
+</body>
+</html>
