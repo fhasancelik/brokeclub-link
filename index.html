@@ -111,6 +111,10 @@
 (function () {
   var APPLE = 'https://apps.apple.com/app/id6797783738';
   var PLAY = 'https://play.google.com/store/apps/details?id=com.hasancelik.brokeclub';
+  // Everyone who lands here came from a short-video bio, so send them to the
+  // custom product page that leads with the urge game rather than the default
+  // dashboard page. ?ppid=<uuid> overrides it; ?ppid=off falls back to default.
+  var DEFAULT_PPID = '3f0ddfc4-29c6-4b8e-a107-ef41abf9a3a5';
 
   var params = new URLSearchParams(location.search);
   var ua = navigator.userAgent || '';
@@ -123,9 +127,8 @@
   function withParams(base, isApple) {
     var url = new URL(base);
     if (isApple) {
-      // A custom product page can be targeted with ?ppid=<uuid> on this link.
-      var ppid = params.get('ppid');
-      if (ppid) url.searchParams.set('ppid', ppid);
+      var ppid = params.get('ppid') || DEFAULT_PPID;
+      if (ppid !== 'off') url.searchParams.set('ppid', ppid);
       ['pt', 'ct', 'mt'].forEach(function (k) {
         if (params.get(k)) url.searchParams.set(k, params.get(k));
       });
