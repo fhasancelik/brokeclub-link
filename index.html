@@ -163,12 +163,61 @@
     ios.classList.add('primary');
   }
 
+  // Visit counter: one row per page load in Supabase (link_visits), read in the admin
+  // panel. No IP, no cookies; visitor is a random id kept in localStorage. ?stay=1 and
+  // ?test=1 visits are marked as test so our own checks stay out of the numbers.
+  var SB_URL = 'https://fqhjmgaadzzerxkzjqky.supabase.co/rest/v1/rpc/log_link_visit';
+  var SB_KEY = 'sb_publishable_SxTaU4Y6zKLo0kZwO8riYg_RseGKTJB';
+  var visitor = null;
+  try {
+    visitor = localStorage.getItem('bc_vid');
+    if (!visitor) {
+      visitor = (Date.now().toString(36) + Math.random().toString(36).slice(2, 12)).slice(0, 20);
+      localStorage.setItem('bc_vid', visitor);
+    }
+  } catch (e) {}
+  var inapp = /musical_ly|TikTok|BytedanceWebview|trill/i.test(ua) ? 'tiktok'
+            : /Instagram/i.test(ua) ? 'instagram'
+            : /FBAN|FBAV|FB_IAB/i.test(ua) ? 'facebook'
+            : /Snapchat/i.test(ua) ? 'snapchat'
+            : /Twitter/i.test(ua) ? 'x' : null;
+  var tz = null;
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || null; } catch (e) {}
+  var refHost = null;
+  try { refHost = document.referrer ? new URL(document.referrer).hostname : null; } catch (e) {}
+  function logVisit(kind, store) {
+    try {
+      return fetch(SB_URL, {
+        method: 'POST',
+        keepalive: kind === 'tap',
+        headers: { 'Content-Type': 'application/json', apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY },
+        body: JSON.stringify({ p: {
+          kind: kind, store: store || null, visitor: visitor,
+          platform: isIOS ? 'ios' : isAndroid ? 'android' : 'other',
+          inapp: inapp, lang: navigator.language || null, tz: tz,
+          source: params.get('utm_source') || params.get('ct') || null,
+          campaign: params.get('utm_campaign') || null, referrer: refHost,
+          test: params.has('stay') || params.has('test')
+        } })
+      }).catch(function () {});
+    } catch (e) { return Promise.resolve(); }
+  }
+  var viewSent = logVisit('view');
+  ios.addEventListener('click', function () { logVisit('tap', 'ios'); });
+  android.addEventListener('click', function () { logVisit('tap', 'android'); });
+
   // On a phone, send them straight through — the page stays behind as the fallback
   // if the store app never takes over. ?stay=1 keeps the chooser for testing.
+  // The redirect waits for the visit to be recorded (a navigation would cancel the
+  // request), but never longer than 1.2 s and never shorter than 350 ms.
   var target = isIOS ? appleUrl : isAndroid ? playUrl : null;
   if (target && !params.has('stay')) {
     document.getElementById('redirecting').classList.add('on');
-    setTimeout(function () { location.replace(target); }, 350);
+    var gone = false;
+    var go = function () { if (!gone) { gone = true; location.replace(target); } };
+    var minWait = new Promise(function (r) { setTimeout(r, 350); });
+    Promise.all([minWait, viewSent]).then(go, go);
+    setTimeout(go, 1200);
   }
 })();
 </script>
