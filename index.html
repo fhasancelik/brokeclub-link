@@ -185,7 +185,12 @@
   try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || null; } catch (e) {}
   var refHost = null;
   try { refHost = document.referrer ? new URL(document.referrer).hostname : null; } catch (e) {}
+  // Headless browsers (Vercel's post-deploy screenshots, crawlers, link previewers that
+  // run scripts) are not people: they all show up as desktop, UTC, en-US.
+  var isBot = navigator.webdriver === true ||
+              /HeadlessChrome|bot\b|crawler|spider|Lighthouse|vercel|PTST|preview/i.test(ua);
   function logVisit(kind, store) {
+    if (isBot) return Promise.resolve();
     try {
       return fetch(SB_URL, {
         method: 'POST',
