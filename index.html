@@ -114,10 +114,9 @@
   // Everyone who lands here came from a short-video bio, so send them to the
   // custom product page that leads with the urge game rather than the default
   // dashboard page. ?ppid=<uuid> overrides it; ?ppid=off falls back to default.
-  // That page only has an en-US localization, so the App Store would show it in
-  // English to a Turkish visitor; they get the default page (which has Turkish)
-  // until the custom page has its own.
-  var CPP_LANGS = /^en/i;
+  // The custom page is localized in English and Turkish only; other languages
+  // would see it in English, so they get the default page in their own language.
+  var CPP_LANGS = /^(en|tr)/i;
   var DEFAULT_PPID = CPP_LANGS.test(navigator.language || '') ? '3f0ddfc4-29c6-4b8e-a107-ef41abf9a3a5' : 'off';
 
   var params = new URLSearchParams(location.search);
