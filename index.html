@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="WULw2WK3lFr_IEUla-N25TcknUtlcVW5ZhO2I_EEgfk">
 <title>Broke Club — Get the app</title>
-<meta name="description" content="No-spend challenges with friends. Beat impulse buying and grow your savings. Try free for 7 days on iPhone and Android.">
+<meta name="description" content="No-spend challenges with friends. Beat impulse buying and grow your savings. On iPhone and Android.">
 <link rel="icon" href="icon.png">
 
 <meta property="og:type" content="website">
@@ -102,7 +102,7 @@
   </ul>
 
   <footer>
-    Try free for 7 days on iPhone and Android ·
+    On iPhone and Android ·
     <a href="https://fhasancelik.github.io/brokeclub-legal/privacy.html">Privacy</a> ·
     <a href="https://fhasancelik.github.io/brokeclub-legal/terms.html">Terms</a>
   </footer>
@@ -150,8 +150,24 @@
 
   var appleUrl = withParams(APPLE, true);
   var playUrl = withParams(PLAY, false);
+
+  // Android hands off to the Play Store app itself. Most Android visitors arrive in
+  // Instagram's in-app browser, where a plain play.google.com address loads the web
+  // listing inside Instagram (22-24 Nov 2026: 235 Android visits from the TR ads, 0
+  // installs, while iPhone converted). An intent:// URL opens the Play app with the
+  // same referrer; Chrome falls back to the web listing via browser_fallback_url.
+  function playIntent(webUrl) {
+    var u = new URL(webUrl);
+    var q = 'id=' + encodeURIComponent(u.searchParams.get('id'));
+    var ref = u.searchParams.get('referrer');
+    if (ref) q += '&referrer=' + encodeURIComponent(ref);
+    return 'intent://details?' + q + '#Intent;scheme=market;package=com.android.vending;' +
+      'S.browser_fallback_url=' + encodeURIComponent(webUrl) + ';end';
+  }
+  var androidUrl = isAndroid ? playIntent(playUrl) : playUrl;
+
   document.getElementById('ios').href = appleUrl;
-  document.getElementById('android').href = playUrl;
+  document.getElementById('android').href = androidUrl;
 
   // Put the matching store first and make it the primary button.
   var btns = document.getElementById('btns');
@@ -216,11 +232,21 @@
   // if the store app never takes over. ?stay=1 keeps the chooser for testing.
   // The redirect waits for the visit to be recorded (a navigation would cancel the
   // request), but never longer than 1.2 s and never shorter than 350 ms.
-  var target = isIOS ? appleUrl : isAndroid ? playUrl : null;
+  var target = isIOS ? appleUrl : isAndroid ? androidUrl : null;
   if (target && !params.has('stay')) {
-    document.getElementById('redirecting').classList.add('on');
+    var note = document.getElementById('redirecting');
+    note.classList.add('on');
     var gone = false;
-    var go = function () { if (!gone) { gone = true; location.replace(target); } };
+    var go = function () {
+      if (gone) return;
+      gone = true;
+      location.replace(target);
+      // Still here after the hand-off (a browser that ignores the intent): stop the
+      // spinner, the store buttons above stay as the way through.
+      setTimeout(function () {
+        if (document.visibilityState === 'visible') note.classList.remove('on');
+      }, 2500);
+    };
     var minWait = new Promise(function (r) { setTimeout(r, 350); });
     Promise.all([minWait, viewSent]).then(go, go);
     setTimeout(go, 1200);
