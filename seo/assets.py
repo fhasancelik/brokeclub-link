@@ -6,6 +6,8 @@ Run from anywhere (needs Pillow and fontTools with brotli):
 Sources live next to this repo in the Broke Club project folder:
     ../brand/penny-3d/penny-3d-cutout.png       3D Penny (the only mascot we use)
     ../docs/aso/store-v3/raw/{en,tr}/*.png      real simulator screenshots
+        (TR home uses 1-home-indirim-haftasi.png: the same shot with the event card's current
+         TR name and blurb, made by ../docs/aso/store-v3/rename-event-tr.py)
     ../brokeclub/node_modules/@expo-google-fonts/poppins/   Poppins TTFs
 
 Writes into assets/ (checked in). The OG images are rendered by build.mjs --og.
@@ -32,7 +34,7 @@ PHONES = [
     ("en", "5-sos.png", "sos"),
     ("en", "6-stats.png", "stats"),
     ("en", "8-penny.png", "penny-chat"),
-    ("tr", "1-home.png", "home"),
+    ("tr", "1-home-indirim-haftasi.png", "home"),
     ("tr", "2-challenge.png", "challenge"),
     ("tr", "3-budget.png", "budget"),
     ("tr", "4-coach.png", "coach"),
@@ -48,7 +50,7 @@ CROPS = [
     ("en", "1-home.png", "event", (40, 1165, 1280, 1520)),
     ("tr", "2-challenge.png", "calendar", (40, 1180, 1280, 1950)),
     ("tr", "2-challenge.png", "club", (40, 1960, 1280, 2735)),
-    ("tr", "1-home.png", "event", (40, 1210, 1280, 1570)),
+    ("tr", "1-home-indirim-haftasi.png", "event", (40, 1210, 1280, 1629)),
 ]
 
 

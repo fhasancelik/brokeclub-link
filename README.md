@@ -32,7 +32,7 @@ redirect: a visitor reads the page and taps a store button.
 | `/en/no-spend-calendar/` | `/tr/harcamasiz-gun-challenge/` |
 | `/en/stop-impulse-buying/` | `/tr/durtusel-alisverisi-durdurma/` |
 | `/en/savings-challenge-with-friends/` | `/tr/arkadaslarla-para-biriktirme/` |
-| `/en/black-friday-no-spend-challenge/` | `/tr/black-friday-harcamasiz-challenge/` |
+| `/en/black-friday-no-spend-challenge/` | `/tr/indirim-haftasi-harcamasiz-challenge/` |
 | `/en/no-buy-challenge/` (English only) | `/tr/butce-takibi/` (Turkish only) |
 | `/en/no-spend-january/` (English only) | `/tr/kumbara-uygulamasi/` (Turkish only) |
 
@@ -54,7 +54,10 @@ node seo/build.mjs --og   # same, and re-renders assets/og-en.png + og-tr.png wi
 ```
 
 The build fails if a page body leaves 280–420 words or the copy contains a banned claim
-("free app", "free forever", "#1", ratings…). Pricing is always "try free for 7 days", then Pro.
+("free app", "free forever", "#1", ratings…). Pricing is a Pro subscription whose price is shown in the app; there is no free trial, and
+the build also fails on "free trial", "try free" or "ücretsiz dene". Turkish pages also fail on
+"Black Friday", "Kara Cuma" or "Efsane Cuma": the TR event is İndirim Haftası Karartması, and the
+old `/tr/black-friday-harcamasiz-challenge/` address redirects to it (see `vercel.json`).
 
 Images and fonts in `assets/` come from the project folder next to this repo (3D Penny,
 simulator screenshots, Poppins). To remake them:

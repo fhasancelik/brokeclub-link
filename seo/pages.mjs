@@ -2,8 +2,8 @@
 //
 // Rules for anyone editing this file:
 // - Only describe features that exist in the app code (brokeclub/src, brokeclub/app).
-// - Pricing: "try free for 7 days" / "7 gün ücretsiz dene", then a Pro subscription whose price is
-//   shown in the app. Never "free app", "free forever", "free to join" or a bare "free".
+// - Pricing: a Pro subscription (monthly or yearly) whose price is shown in the app. There is no free
+//   trial (removed 22 Nov 2026). Never "free", "free trial", "try free", "ücretsiz dene" or "bedava".
 // - No ratings, review counts, user numbers, "#1" or testimonials.
 // - Paragraph text may use [label](/en/slug/) for an internal link. Nothing else is parsed.
 // - Each page body (everything in <main> except the CTA, related links and closing block)
@@ -16,7 +16,7 @@ export const SITE = {
   play: 'https://play.google.com/store/apps/details?id=com.hasancelik.brokeclub',
   privacy: 'https://fhasancelik.github.io/brokeclub-legal/privacy.html',
   terms: 'https://fhasancelik.github.io/brokeclub-legal/terms.html',
-  updated: '2026-11-19',
+  updated: '2026-11-25',
 };
 
 export const UI = {
@@ -25,7 +25,7 @@ export const UI = {
     getApp: 'Get the app',
     appStore: 'Download on the App Store',
     play: 'Get it on Google Play',
-    price: 'Try free for 7 days, then Pro. Price shown in the app.',
+    price: 'Pro subscription. Your price is shown in the app before you buy.',
     how: 'How it works',
     faq: 'Questions',
     related: 'Keep reading',
@@ -44,14 +44,14 @@ export const UI = {
       'No-spend challenge app: check in daily, keep your streak, beat cravings with Craving SOS and save with friends.',
     priceQ: 'How much does Broke Club cost?',
     priceA:
-      'You can try Broke Club free for 7 days. After that it continues as a Pro subscription, and the price for your country is shown in the app before you start. You can cancel anytime in your App Store or Google Play subscriptions.',
+      'Broke Club is a Pro subscription, monthly or yearly. The price for your country is shown in the app before you buy, and you can cancel anytime in your App Store or Google Play subscriptions.',
   },
   tr: {
     locale: 'tr_TR',
     getApp: 'Uygulamayı indir',
     appStore: "App Store'dan indir",
     play: "Google Play'den edinin",
-    price: '7 gün ücretsiz dene, sonra Pro. Fiyat uygulamada görünür.',
+    price: 'Pro abonelik. Fiyatın, satın almadan önce uygulamada görünür.',
     how: 'Nasıl çalışır?',
     faq: 'Sık sorulanlar',
     related: 'Bunlar da ilgini çekebilir',
@@ -70,7 +70,7 @@ export const UI = {
       'Harcamasız meydan okuma uygulaması: her gün check-in yap, serini koru, İstek SOS ile alışveriş isteğini yen, arkadaşlarınla para biriktir.',
     priceQ: 'Broke Club ücretli mi?',
     priceA:
-      "Broke Club'ı 7 gün ücretsiz deneyebilirsin. Deneme bitince Pro abonelik olarak devam eder; ülkene göre güncel fiyat, başlamadan önce uygulamada gösterilir. Aboneliğini App Store ya da Google Play üzerinden istediğin zaman iptal edebilirsin.",
+      "Evet. Broke Club aylık ya da yıllık Pro abonelikle çalışır; ülkene göre güncel fiyat, satın almadan önce uygulamada gösterilir. Aboneliğini App Store ya da Google Play üzerinden istediğin zaman iptal edebilirsin.",
   },
 };
 
@@ -88,7 +88,7 @@ export const PAGES = [
     query: 'broke club / no-spend challenges with friends',
     title: 'Broke Club: No-Spend Challenge App With Friends',
     description:
-      "Start no-spend challenges alone or with friends, check in daily, keep your streak and see every dollar you didn't spend. Try free for 7 days.",
+      "Start no-spend challenges alone or with friends, check in daily, keep your streak and see every dollar you didn't spend. On iPhone and Android.",
     kicker: 'No-spend challenges, played with friends',
     h1: ['Saving money,', 'loudly.'],
     intro: [
@@ -162,7 +162,7 @@ export const PAGES = [
     query: 'no spend challenge app',
     title: 'No-Spend Challenge App With Streaks and Friends | Broke Club',
     description:
-      'A no-spend challenge app that counts every day you held the line and every dollar you kept. Solo or with friends. Try free for 7 days on iPhone and Android.',
+      'A no-spend challenge app that counts every day you held the line and every dollar you kept. Solo or with friends. On iPhone and Android.',
     kicker: 'No-spend challenge app',
     h1: ['A no-spend challenge app', 'that keeps score for you.'],
     intro: [
@@ -226,7 +226,7 @@ export const PAGES = [
     query: 'no buy challenge / no buy month tracker',
     title: 'No Buy Challenge Tracker for a No Buy Month | Broke Club',
     description:
-      'Run a no buy challenge or a full No Buy Month with a daily check-in, your own list of allowed essentials and a running total of what you kept. Try free for 7 days.',
+      'Run a no buy challenge or a full No Buy Month with a daily check-in, your own list of allowed essentials and a running total of what you kept. On iPhone and Android.',
     kicker: 'No buy challenge tracker',
     h1: ['Your No Buy Month,', 'tracked one day at a time.'],
     intro: [
@@ -290,7 +290,7 @@ export const PAGES = [
     query: 'no spend calendar',
     title: 'No-Spend Calendar App to Track Your Streak | Broke Club',
     description:
-      'A no-spend calendar that fills itself in: one check-in a day marks it held or slipped, keeps your streak and adds up the money you kept. Try free for 7 days.',
+      'A no-spend calendar that fills itself in: one check-in a day marks it held or slipped, keeps your streak and adds up the money you kept. On iPhone and Android.',
     kicker: 'No-spend calendar',
     h1: ['A no-spend calendar', 'that fills itself in.'],
     intro: [
@@ -360,7 +360,7 @@ export const PAGES = [
     query: 'how to stop impulse buying',
     title: 'How to Stop Impulse Buying in the Moment | Broke Club',
     description:
-      'Impulse buying peaks fast and fades fast. Craving SOS gives you a reality check, a five-minute urge timer and a 48-hour Park it rule. Try free for 7 days.',
+      'Impulse buying peaks fast and fades fast. Craving SOS gives you a reality check, a five-minute urge timer and a 48-hour Park it rule. On iPhone and Android.',
     kicker: 'How to stop impulse buying',
     h1: ['The urge to buy fades.', 'Let it.'],
     intro: [
@@ -424,7 +424,7 @@ export const PAGES = [
     query: 'savings challenge with friends',
     title: 'Savings Challenge With Friends: Join With a Code | Broke Club',
     description:
-      'Start a no-spend savings challenge with friends: share a BRK code, check in daily, climb the live leaderboard and add stakes if you dare. Try free for 7 days.',
+      'Start a no-spend savings challenge with friends: share a BRK code, check in daily, climb the live leaderboard and add stakes if you dare. On iPhone and Android.',
     kicker: 'Savings challenge with friends',
     h1: ['Saving is easier', 'when friends are watching.'],
     intro: [
@@ -469,7 +469,7 @@ export const PAGES = [
       },
       {
         q: 'Do my friends need their own account?',
-        a: 'Yes, each person uses Broke Club on their own phone. New members can try it free for 7 days before the Pro subscription starts.',
+        a: 'Yes, each person installs Broke Club and uses it on their own phone.',
       },
       {
         q: 'Do we have to bet money?',
@@ -485,7 +485,7 @@ export const PAGES = [
   {
     lang: 'en',
     slug: 'black-friday-no-spend-challenge',
-    pair: 'black-friday-harcamasiz-challenge',
+    pair: 'indirim-haftasi-harcamasiz-challenge',
     name: 'Black Friday no-spend challenge',
     card: 'Black Friday Blackout: seven days, November 24 to 30.',
     query: 'black friday no spend challenge',
@@ -561,7 +561,7 @@ export const PAGES = [
     query: 'no spend january',
     title: 'No-Spend January Challenge: 31 Days, Tracked | Broke Club',
     description:
-      'No-Spend January runs January 1 to 31 in Broke Club: one check-in a day, a calendar, a streak and friends on the leaderboard. Try free for 7 days.',
+      'No-Spend January runs January 1 to 31 in Broke Club: one check-in a day, a calendar, a streak and friends on the leaderboard. On iPhone and Android.',
     kicker: 'No-Spend January',
     h1: ['No-Spend January:', '31 days, one check-in each.'],
     intro: [
@@ -627,7 +627,7 @@ export const PAGES = [
     query: 'broke club / arkadaşlarla harcamasız meydan okuma',
     title: 'Broke Club: Arkadaşlarla Harcamasız Meydan Okuma',
     description:
-      'Tek başına ya da arkadaşlarınla harcamasız meydan okuma başlat, her gün check-in yap, serini koru ve cebinde kalan parayı gör. 7 gün ücretsiz dene.',
+      'Tek başına ya da arkadaşlarınla harcamasız meydan okuma başlat, her gün check-in yap, serini koru ve cebinde kalan parayı gör. iPhone ve Android\'de.',
     kicker: 'Arkadaşlarla oynanan para biriktirme oyunu',
     h1: ['Para biriktir,', 'yüksek sesle.'],
     intro: [
@@ -693,7 +693,7 @@ export const PAGES = [
       'durtusel-alisverisi-durdurma',
       'butce-takibi',
       'kumbara-uygulamasi',
-      'black-friday-harcamasiz-challenge',
+      'indirim-haftasi-harcamasiz-challenge',
     ],
   },
   {
@@ -705,7 +705,7 @@ export const PAGES = [
     query: 'para biriktirme uygulaması',
     title: 'Para Biriktirme Uygulaması: Harcamasız Seriler | Broke Club',
     description:
-      'Broke Club, harcamadığın her günü ve cebinde kalan her lirayı sayan bir para biriktirme uygulaması. Tek başına ya da arkadaşlarla. 7 gün ücretsiz dene.',
+      'Broke Club, harcamadığın her günü ve cebinde kalan her lirayı sayan bir para biriktirme uygulaması. Tek başına ya da arkadaşlarla. iPhone ve Android\'de.',
     kicker: 'Para biriktirme uygulaması',
     h1: ['Para biriktirmenin en kolay yolu:', 'harcamamak.'],
     intro: [
@@ -769,7 +769,7 @@ export const PAGES = [
     query: "harcamasız gün challenge'ı",
     title: "Harcamasız Gün Challenge'ı: Takvimli Takip | Broke Club",
     description:
-      "Harcamasız gün challenge'ını takvimle takip et: her gün tek check-in, direndiğin günler işaretlenir, serin büyür, cebinde kalan para toplanır. 7 gün ücretsiz dene.",
+      "Harcamasız gün challenge'ını takvimle takip et: her gün tek check-in, direndiğin günler işaretlenir, serin büyür, cebinde kalan para toplanır. iPhone ve Android'de.",
     kicker: "Harcamasız gün challenge'ı",
     h1: ['Harcamasız günler,', 'takvimde tek tek.'],
     intro: [
@@ -828,7 +828,7 @@ export const PAGES = [
       },
       PRICE_TR,
     ],
-    related: ['para-biriktirme-uygulamasi', 'arkadaslarla-para-biriktirme', 'black-friday-harcamasiz-challenge'],
+    related: ['para-biriktirme-uygulamasi', 'arkadaslarla-para-biriktirme', 'indirim-haftasi-harcamasiz-challenge'],
   },
   {
     lang: 'tr',
@@ -839,7 +839,7 @@ export const PAGES = [
     query: 'arkadaşlarla para biriktirme',
     title: 'Arkadaşlarla Para Biriktirme: Kodla Katıl, Yarış | Broke Club',
     description:
-      "Arkadaşlarınla para biriktirme challenge'ı başlat: BRK kodunu paylaş, her gün check-in yapın, canlı sıralamada yarışın, istersen iddiaya girin. 7 gün ücretsiz dene.",
+      "Arkadaşlarınla para biriktirme challenge'ı başlat: BRK kodunu paylaş, her gün check-in yapın, canlı sıralamada yarışın, istersen iddiaya girin. iPhone ve Android'de.",
     kicker: 'Arkadaşlarla para biriktirme',
     h1: ['Birikim, arkadaşların', 'izlerken daha kolay.'],
     intro: [
@@ -867,7 +867,7 @@ export const PAGES = [
       {
         h2: 'Cesaretin varsa iddia',
         p: [
-          'İddia isteğe bağlı ve tamamen aranızda; uygulamadaki örnek: kaybeden cuma kahvesini ısmarlar. Meydan okuma bitince uygulama kimin neyi borçlu olduğunu gösteriyor. Uygulamada para el değiştirmiyor. Büyük bir grup hedefi mi arıyorsun? [Black Friday Karartması](/tr/black-friday-harcamasiz-challenge/) tam bunun için.',
+          'İddia isteğe bağlı ve tamamen aranızda; uygulamadaki örnek: kaybeden cuma kahvesini ısmarlar. Meydan okuma bitince uygulama kimin neyi borçlu olduğunu gösteriyor. Uygulamada para el değiştirmiyor. Büyük bir grup hedefi mi arıyorsun? [İndirim Haftası Karartması](/tr/indirim-haftasi-harcamasiz-challenge/) tam bunun için.',
         ],
       },
     ],
@@ -884,7 +884,7 @@ export const PAGES = [
       },
       {
         q: 'Arkadaşlarımın da hesap açması gerekiyor mu?',
-        a: "Evet, herkes Broke Club'ı kendi telefonunda kullanır. Yeni katılanlar Pro abonelik başlamadan önce 7 gün ücretsiz deneyebilir.",
+        a: "Evet, herkes Broke Club'ı kendi telefonuna indirip kullanır.",
       },
       {
         q: 'Para üzerine iddiaya girmek zorunda mıyız?',
@@ -895,7 +895,7 @@ export const PAGES = [
         a: 'Hayır. Arkadaşların yalnızca ortak meydan okumadaki check-in’leri, serileri ve cepte kalan tutarı görür. Bütçe sekmesi senin telefonunda kalır.',
       },
     ],
-    related: ['harcamasiz-gun-challenge', 'para-biriktirme-uygulamasi', 'black-friday-harcamasiz-challenge'],
+    related: ['harcamasiz-gun-challenge', 'para-biriktirme-uygulamasi', 'indirim-haftasi-harcamasiz-challenge'],
   },
   {
     lang: 'tr',
@@ -906,7 +906,7 @@ export const PAGES = [
     query: 'dürtüsel alışverişi durdurma / alışveriş bağımlılığı',
     title: 'Dürtüsel Alışveriş Nasıl Durdurulur? | Broke Club',
     description:
-      'Alışveriş isteği hızlı yükselir, hızlı söner. İstek SOS ile gerçeklik kontrolü, 5 dakikalık dürtü sayacı ve 48 saat park et kuralı. 7 gün ücretsiz dene.',
+      'Alışveriş isteği hızlı yükselir, hızlı söner. İstek SOS ile gerçeklik kontrolü, 5 dakikalık dürtü sayacı ve 48 saat park et kuralı. iPhone ve Android\'de.',
     kicker: 'Dürtüsel alışverişi durdurma',
     h1: ['Alma isteği geçer.', 'Bırak geçsin.'],
     intro: [
@@ -965,7 +965,7 @@ export const PAGES = [
       },
       PRICE_TR,
     ],
-    related: ['para-biriktirme-uygulamasi', 'black-friday-harcamasiz-challenge', 'butce-takibi'],
+    related: ['para-biriktirme-uygulamasi', 'indirim-haftasi-harcamasiz-challenge', 'butce-takibi'],
   },
   {
     lang: 'tr',
@@ -976,7 +976,7 @@ export const PAGES = [
     query: 'bütçe ve harcama takibi',
     title: 'Bütçe ve Harcama Takibi Uygulaması | Broke Club',
     description:
-      'Gelirini, sabit giderlerini ve harcamalarını gir; Broke Club bu dönem ne kaldığını ve maaş gününe kadar günde ne harcayabileceğini göstersin. 7 gün ücretsiz dene.',
+      'Gelirini, sabit giderlerini ve harcamalarını gir; Broke Club bu dönem ne kaldığını ve maaş gününe kadar günde ne harcayabileceğini göstersin. iPhone ve Android\'de.',
     kicker: 'Bütçe ve harcama takibi',
     h1: ['Maaş gününe kadar', 'ne kaldığını bil.'],
     intro: [
@@ -1040,7 +1040,7 @@ export const PAGES = [
     query: 'kumbara uygulaması',
     title: 'Kumbara Uygulaması: Hedefe Göre Birikim | Broke Club',
     description:
-      'Broke Club dijital bir kumbara gibi çalışır: harcamadığın her tutar cebinde kalan toplama eklenir, hedefe ne kadar yaklaştığını görürsün. 7 gün ücretsiz dene.',
+      'Broke Club dijital bir kumbara gibi çalışır: harcamadığın her tutar cebinde kalan toplama eklenir, hedefe ne kadar yaklaştığını görürsün. iPhone ve Android\'de.',
     kicker: 'Kumbara uygulaması',
     h1: ['Dijital kumbaran,', 'harcamadıklarınla dolar.'],
     intro: [
@@ -1097,30 +1097,30 @@ export const PAGES = [
   },
   {
     lang: 'tr',
-    slug: 'black-friday-harcamasiz-challenge',
+    slug: 'indirim-haftasi-harcamasiz-challenge',
     pair: 'black-friday-no-spend-challenge',
-    name: 'Black Friday harcamasız challenge',
-    card: 'Black Friday Karartması: 24–30 Kasım, yedi gün.',
-    query: 'efsane cuma / black friday harcamasız challenge',
-    title: 'Black Friday Harcamasız Challenge: 24–30 Kasım | Broke Club',
+    name: 'İndirim haftası harcamasız challenge',
+    card: 'İndirim Haftası Karartması: 24–30 Kasım, yedi gün.',
+    query: 'kasım indirimleri / indirim haftası harcamasız challenge',
+    title: 'İndirim Haftası Harcamasız Challenge: 24–30 Kasım | Broke Club',
     description:
-      "Black Friday Karartması, Broke Club'da 24–30 Kasım arasında süren 7 günlük harcamasız challenge. Kulüp sekmesinden katıl, indirimleri atla. 7 gün ücretsiz dene.",
-    kicker: 'Black Friday harcamasız challenge',
+      "İndirim Haftası Karartması, Broke Club'da 24–30 Kasım arasında süren 7 günlük harcamasız challenge. Kulüp sekmesinden katıl, indirimleri atla. iPhone ve Android'de.",
+    kicker: 'İndirim haftası harcamasız challenge',
     h1: ['Almadığın her fırsat', '%100 indirimli.'],
     intro: [
-      "Black Friday ya da bizdeki yaygın adıyla Efsane Cuma, kasımın son haftasını harcatmak için tasarlıyor: geri sayımlar, son birkaç ürün uyarıları, her bildirimde yeni bir indirim. Broke Club'ın cevabı Black Friday Karartması: her yıl 24–30 Kasım arasında süren yedi günlük bir harcamasız meydan okuma.",
+      "Kasım indirimlerinin en yoğun haftası seni harcatmak için tasarlanıyor: geri sayımlar, son birkaç ürün uyarıları, her bildirimde yeni bir indirim. Broke Club'ın cevabı İndirim Haftası Karartması: her yıl 24–30 Kasım arasında süren yedi günlük bir harcamasız meydan okuma.",
     ],
     sections: [
       {
         h2: 'Karartma nasıl işliyor?',
         p: [
-          "Etkinlikten yaklaşık üç hafta önce Kulüp sekmesinde geri sayımlı bir Black Friday Karartması kartı beliriyor. 24 Kasım'da Etkinliğe katıl düğmesi açılıyor. Dokunduğunda uygulama kalan günler için meydan okumayı kuruyor; yani geç katılsan da olur. Sonrası normal bir meydan okuma: günde bir check-in.",
+          "Etkinlikten yaklaşık üç hafta önce Kulüp sekmesinde geri sayımlı bir İndirim Haftası Karartması kartı beliriyor. 24 Kasım'da Etkinliğe katıl düğmesi açılıyor. Dokunduğunda uygulama kalan günler için meydan okumayı kuruyor; yani geç katılsan da olur. Sonrası normal bir meydan okuma: günde bir check-in.",
         ],
         shot: {
           file: 'tr-event',
           kind: 'crop',
-          alt: 'Broke Club Black Friday Karartması kartı: Bir hafta. Almadığın her fırsat %100 indirimli.',
-          caption: 'Kulüp sekmesinde geri sayan Black Friday Karartması kartı.',
+          alt: 'Broke Club İndirim Haftası Karartması kartı: İndirimli aylardayız. Bir hafta boyunca almadığın her fırsat %100 indirimli.',
+          caption: 'Kulüp sekmesinde geri sayan İndirim Haftası Karartması kartı.',
         },
       },
       {
@@ -1137,21 +1137,21 @@ export const PAGES = [
         shot: {
           file: 'tr-home',
           kind: 'phone',
-          alt: 'Broke Club Kulüp sekmesi: Black Friday Karartması kartı ve bugünün check-in düğmeleri',
+          alt: 'Broke Club Kulüp sekmesi: İndirim Haftası Karartması kartı ve bugünün check-in düğmeleri',
           caption: 'Etkinlik, Kulüp sekmesinde check-in’lerinin hemen üstünde.',
         },
       },
     ],
     steps: [
       "Broke Club'ı 24 Kasım'dan önce indir.",
-      "Black Friday Karartması kartında Etkinliğe katıl'a dokun.",
+      "İndirim Haftası Karartması kartında Etkinliğe katıl'a dokun.",
       "30 Kasım'a kadar her gün check-in yap.",
       "Bir fırsat gözünü boyarsa İstek SOS'a ya da Park et'e başvur.",
     ],
     faq: [
       {
-        q: 'Black Friday Karartması ne zaman?',
-        a: "Her yıl 24–30 Kasım arasında; Black Friday'in genelde denk geldiği hafta.",
+        q: 'İndirim Haftası Karartması ne zaman?',
+        a: 'Her yıl 24–30 Kasım arasında; kasım indirimlerinin en yoğun olduğu hafta.',
       },
       {
         q: "24 Kasım'dan sonra katılabilir miyim?",

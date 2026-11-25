@@ -29,7 +29,14 @@ const FORBIDDEN = [
   /tamamen ücretsiz/i,
   /(?<!ope)rating/i, // "operatingSystem" in the JSON-LD is fine
   /\bbedava\b/i,
+  /free trial/i, // no trial since 22 Nov 2026
+  /try (it )?free/i,
+  /free for \d+ days/i,
+  /ücretsiz dene/i,
+  /ücretsiz deneme/i,
 ];
+// Turkish pages never say Black Friday or Kara Cuma; the TR event is "İndirim Haftası Karartması".
+const FORBIDDEN_TR = [/black friday/i, /kara cuma/i, /efsane cuma/i];
 
 // ───────────────────────────── helpers ─────────────────────────────
 
@@ -517,7 +524,8 @@ for (const page of PAGES) {
   const html = render(page);
   writeFileSync(join(dir, 'index.html'), html);
   const n = bodyWords(page);
-  const hits = FORBIDDEN.filter((re) => re.test(html)).map(String);
+  const banned = page.lang === 'tr' ? [...FORBIDDEN, ...FORBIDDEN_TR] : FORBIDDEN;
+  const hits = banned.filter((re) => re.test(html)).map(String);
   const notes = [];
   if (n < 280 || n > 420) notes.push('WORDS OUT OF RANGE');
   if (page.title.length > 65) notes.push(`title ${page.title.length} chars`);

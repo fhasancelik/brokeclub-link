@@ -1,6 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/tr/black-friday-harcamasiz-challenge", "destination": "/tr/indirim-haftasi-harcamasiz-challenge/", "permanent": true },
+    { "source": "/tr/black-friday-harcamasiz-challenge/", "destination": "/tr/indirim-haftasi-harcamasiz-challenge/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.png",
